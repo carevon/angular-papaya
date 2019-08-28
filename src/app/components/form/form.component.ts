@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   mainForm:FormGroup;
   generos:Array<Object> = [];
   cores:Array<Object> = [];
+  urlPais:string = "https://restcountries.eu/rest/v2/all";
 
   constructor(
     private formBuilder:FormBuilder,
@@ -44,7 +45,8 @@ export class FormComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+     var paises = await this.http.get(this.urlPais).toPromise();
   }
 
 }
