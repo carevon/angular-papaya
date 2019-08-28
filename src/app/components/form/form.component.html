@@ -1,34 +1,43 @@
 <div class="container">
-    <h1>Formulário principal</h1>
+
+    <h1 [style.color]="mainForm.value.corFavorita">Formulário principal</h1>
 
     <form class="mainForm" [formGroup]="mainForm" action="">
+
+        <!-- Nome -->
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control" placeholder="Nome" formControlName="nome">
         </div>
-
+        <!-- Sobrenome -->
         <div class="form-group">
             <label for="sobrenome">Sobrenome</label>
             <input type="text" name="sobrenome" class="form-control" placeholder="Sobrenome" formControlName="sobrenome">
         </div>
-
+        <!-- Email -->
         <div class="form-group">
-            <label for="email">email</label>
+            <label for="email">E-mail</label>
             <input type="text" name="email" class="form-control" placeholder="Email" formControlName="email">
         </div>
 
         <div class="form-group">
-            <label for="genero">genero</label>
-            <input type="text" name="genero" class="form-control" placeholder="Genero" formControlName="genero">
+            <label for="genero">Gênero</label>
+            <select class="form-control" name="genero" formControlName="genero">
+                <option value="">Selecione o genero</option>
+                <option *ngFor="let genero of generos" [value]="genero.valor">{{genero.nome}}</option>
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="corFavorita">corFavorita</label>
-            <input type="text" name="corFavorita" class="form-control" placeholder="CorFavorita" formControlName="corFavorita">
+            <label for="corFavorita">Cor Favorita</label>
+            <select class="form-control" name="corFavorita" formControlName="corFavorita">
+                    <option value="">Selecione sua cor</option>
+                    <option [style.backgroundColor]="cor.hex" *ngFor="let cor of cores" [value]="cor.hex">{{cor.nome}}</option>
+            </select>
         </div>
     </form>
 
-    <pre>
-        {{mainForm.value | json}}
+    <pre class="">
+        {{ mainForm.value | json }}
     </pre>
 </div>

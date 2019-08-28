@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 // Forma antiga de importar o componente
 //import {FormComponent } from './form/form.component'
 //Forma nova de importar o componente
-import {FormComponent } from './components/index'
+import {FormComponent } from './components/index';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {FormComponent } from './components/index'
     BrowserModule,
     AppRoutingModule,
     FormsModule, // módulo do angular forms
-    ReactiveFormsModule // módulo do angular forms
+    ReactiveFormsModule, BrowserAnimationsModule // módulo do angular forms
   ],
   providers: [],
   bootstrap: [AppComponent]
